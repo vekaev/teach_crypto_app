@@ -3,17 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next dev",
     "test": "jest",
     "lint": "next lint",
     "postinstall": "npx husky install && chmod ug+x .husky/* || :"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.9.3",
     "next": "12.1.6",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "react-hook-form": "^7.33.1",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@testing-library/dom": "^8.13.0",
