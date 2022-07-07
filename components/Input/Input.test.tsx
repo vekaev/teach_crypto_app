@@ -1,13 +1,15 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import Input from './Input';
 
 describe('Input component', () => {
   test('should render', () => {
-    const onChange = jest.fn();
+    const testId = 'test_input';
 
-    render(<Input value="" onChange={onChange} />);
+    render(<Input data-testid={testId} value="" onChange={() => 1} />);
 
-    //  TODO: fix this test
+    const element = screen.getByTestId(testId);
+
+    expect(element).toBeInTheDocument();
   });
 });

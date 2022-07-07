@@ -3,13 +3,11 @@ import usePersistStorage from '@hooks/usePersistStorage';
 import { ISignupForm, useSignupForm } from '@hooks/useSignupForm';
 import { Controller, Control } from 'react-hook-form';
 
-import { Input } from '@components/Input';
+import { Input, InputProps } from '@components/Input';
 
-interface InputFieldProps<TForm> {
+interface InputFieldProps<TForm> extends Partial<InputProps> {
   control: Control<TForm>;
   name: keyof TForm;
-  label: string;
-  type: 'text' | 'email' | 'password';
 }
 
 const InputField: FunctionComponent<InputFieldProps<ISignupForm>> = ({
