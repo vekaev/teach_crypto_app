@@ -5,7 +5,7 @@ describe('SignUp.screen', () => {
   it('initial render', () => {
     const screen = render(<SignUpScreen />);
 
-    const input = screen.getByPlaceholderText('Email');
+    const input = screen.getByTestId('email_input');
     const checkbox = screen.getByRole('checkbox');
     const button = screen.getByRole('button');
 
@@ -21,7 +21,7 @@ describe('SignUp.screen', () => {
   it('button should be enabled afet with checkbox checked and input not empty', () => {
     const screen = render(<SignUpScreen />);
 
-    const input = screen.getByPlaceholderText('Email');
+    const input = screen.getByTestId('email_input');
     const checkbox = screen.getByRole('checkbox');
     const button = screen.getByRole('button');
 

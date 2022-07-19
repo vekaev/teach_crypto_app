@@ -17,8 +17,9 @@ const SignUpScreen = () => {
   return (
     <>
       <input
+        data-testid="email_input"
         type="email"
-        placeholder="Email"
+        placeholder="Email: "
         value={value}
         onChange={handleChange}
       />
