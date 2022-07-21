@@ -8,6 +8,7 @@ export interface InputProps {
   value: string;
   onChange: (value: string, event: IEvent) => void;
   className?: string;
+  placeholder?: string;
 }
 
 export interface AdditionalInputProps {

@@ -1,30 +1,42 @@
-import React, { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+
 import { IEvent } from '@types';
+import { Input, PasswordInput } from '@components/Input';
+import delay from '@utils/delay';
 
 const SignUpScreen = () => {
+  const [loading, setLoading] = useState(true);
   const [checked, setChecked] = useState(false);
-  const [value, setValue] = useState('');
-  const buttonDisabled = useMemo(() => !checked || !value, [checked, value]);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  useEffect(() => {
+    delay(() => setLoading(false), 1000);
+  }, []);
+
+  const buttonEnabled: boolean = useMemo(
+    () => checked && Boolean(email) && Boolean(password),
+    [checked, email, password]
+  );
 
   const handleCheck = (e: IEvent) => {
     setChecked(e.target.checked);
   };
 
-  const handleChange = (e: IEvent) => {
-    setValue(e.target.value);
-  };
-
-  return (
+  return loading ? (
+    <div>Loading...</div>
+  ) : (
     <>
-      <input
-        data-testid="email_input"
+      <h1>Sign up</h1>
+      <Input
         type="email"
-        placeholder="Email: "
-        value={value}
-        onChange={handleChange}
+        value={email}
+        placeholder="Email:"
+        onChange={setEmail}
       />
+      <PasswordInput value={password} onChange={setPassword} />
       <input type="checkbox" checked={checked} onChange={handleCheck} />
-      <button disabled={buttonDisabled} type="submit">
+      <button type="submit" disabled={!buttonEnabled}>
         Sign up
       </button>
     </>

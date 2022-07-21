@@ -1,4 +1,6 @@
 export { default as Input } from './Input';
+export { default as PasswordInput } from './PasswordInput';
+
 export * from './types';
 export * from './styled';
 
