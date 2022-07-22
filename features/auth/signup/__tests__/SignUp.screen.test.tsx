@@ -8,12 +8,10 @@ describe('SignUp.screen', () => {
 
     const emailInput = screen.queryByPlaceholderText('Email:');
     const passwordInput = screen.queryByPlaceholderText('Password:');
-    const checkbox = screen.queryByRole('checkbox');
     const button = screen.queryByRole('button', { name: 'Sign up' });
 
     expect(emailInput).toBeNull();
     expect(passwordInput).toBeNull();
-    expect(checkbox).toBeNull();
     expect(button).toBeNull();
   });
 
